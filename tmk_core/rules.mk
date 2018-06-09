@@ -92,9 +92,9 @@ endif
 endif
 CFLAGS += -Wall
 CFLAGS += -Wstrict-prototypes
-ifneq ($(strip $(ALLOW_WARNINGS)), yes)
-    CFLAGS += -Werror
-endif
+#ifneq ($(strip $(ALLOW_WARNINGS)), yes)
+#    CFLAGS += -Werror
+#endif
 #CFLAGS += -mshort-calls
 #CFLAGS += -fno-unit-at-a-time
 #CFLAGS += -Wundef
@@ -118,9 +118,9 @@ CPPFLAGS += -O$(OPT)
 CPPFLAGS += -w
 CPPFLAGS += -Wall
 CPPFLAGS += -Wundef
-ifneq ($(strip $(ALLOW_WARNINGS)), yes)
-    CPPFLAGS += -Werror
-endif
+#ifneq ($(strip $(ALLOW_WARNINGS)), yes)
+#    CPPFLAGS += -Werror
+#endif
 #CPPFLAGS += -mshort-calls
 #CPPFLAGS += -fno-unit-at-a-time
 #CPPFLAGS += -Wstrict-prototypes
@@ -138,7 +138,7 @@ CPPFLAGS += -Wa,-adhlns=$(@:%.o=%.lst)
 #             files -- see avr-libc docs [FIXME: not yet described there]
 #  -listing-cont-lines: Sets the maximum number of continuation lines of hex
 #       dump that will be displayed for a given single line of source input.
-ASFLAGS += $(ADEFS) 
+ASFLAGS += $(ADEFS)
 ASFLAGS += -Wa,-adhlns=$(@:%.o=%.lst),-gstabs,--listing-cont-lines=100
 
 #---------------- Library Options ----------------
@@ -284,7 +284,7 @@ BEGIN = gccversion sizebefore
 	@$(SILENT) || printf "$(MSG_LINKING) $@" | $(AWK_CMD)
 	$(eval CMD=$(CC) $(ALL_CFLAGS) $(filter-out %.txt,$^) --output $@ $(LDFLAGS))
 	@$(BUILD_CMD)
-	
+
 
 define GEN_OBJRULE
 $1_INCFLAGS := $$(patsubst %,-I%,$$($1_INC))
@@ -352,7 +352,7 @@ DEPS = $(patsubst %.o,%.d,$(OBJ))
 .PRECIOUS: $(DEPS)
 # Empty rule to force recompilation if the .d file is missing
 $(DEPS):
-	
+
 
 $(foreach OUTPUT,$(OUTPUTS),$(eval $(call GEN_OBJRULE,$(OUTPUT))))
 
