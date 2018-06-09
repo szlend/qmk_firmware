@@ -20,7 +20,8 @@ OPTIMIZATION = 1
 TARGET       = Test
 SRC          = $(TARGET).c
 LUFA_PATH    = ../../LUFA
-CC_FLAGS     = -Werror
+#CC_FLAGS     = -Werror
+CC_FLAGS     =
 DEBUG_LEVEL  = 0
 
 

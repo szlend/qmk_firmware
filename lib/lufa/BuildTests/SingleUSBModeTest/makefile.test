@@ -32,7 +32,7 @@ LUFA_PATH    = ../../LUFA
 
 # Generic C/C++ compiler flags
 CC_FLAGS  = -Wextra
-CC_FLAGS += -Werror
+#CC_FLAGS += -Werror
 CC_FLAGS += -Wformat=2
 CC_FLAGS += -Winit-self
 CC_FLAGS += -Wswitch-enum
