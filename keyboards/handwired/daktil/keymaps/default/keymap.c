@@ -40,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_DELT,         KC_Q,           KC_W,     KC_E,     KC_R,  KC_T,
           KC_BSPC,         KC_A,           KC_S,     KC_D,     KC_F,  KC_G,
           KC_LSPO,  CTL_T(KC_Z),           KC_X,     KC_C,     KC_V,  KC_B,
-  LT(SYMB,KC_GRV),      KC_QUOT,  LALT(KC_LSFT),  KC_LEFT,  KC_RGHT,
-                                                                       KC_LGUI,   KC_SPC,
+          LT(SYMB,KC_GRV),ALT_T(KC_QUOT),LALT(KC_LSFT),KC_LEFT,KC_RGHT,
+                                                              KC_LGUI(KC_ESC),   KC_SPC,
                                                                            ALT_T(KC_APP),
                                                             KC_HOME,    KC_END,  KC_BSPC,
         // right hand
@@ -49,8 +49,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_Y,   KC_U,     KC_I,     KC_O,               KC_P,         KC_BSLS,
                              KC_H,   KC_J,     KC_K,     KC_L,  LT(MDIA, KC_SCLN),  GUI_T(KC_QUOT),
                              KC_N,   KC_M,  KC_COMM,   KC_DOT,     CTL_T(KC_SLSH),         KC_RSPC,
-                                    KC_UP,  KC_DOWN,  KC_LBRC,            KC_RBRC,          KC_FN1,
-             KC_ENT, CTL_T(KC_ESC),
+                             KC_UP,  KC_DOWN,  KC_LBRC,      ALT_T(KC_RBRC),          KC_FN1,
+             KC_ENT, KC_LGUI(KC_ESC),
             KC_RALT,
              KC_TAB, KC_PGDN, KC_PGUP
     ),
@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                      |      |      |  |      |      |
  *                               ,------|------|------|  |------+------+------.
  *                               |      |      |      |  |      |      |Brwser|
- *                               |      |      |------|  |------|      |Back  |
+ *                               | Lclk | Rclk |------|  |------|      |Back  |
  *                               |      |      |      |  |      |      |      |
  *                               `--------------------'  `--------------------'
  *
@@ -124,16 +124,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,  KC_TRNS,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_TRNS,
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_BTN1,  KC_BTN2,
-                                                         KC_TRNS,  KC_TRNS,
+                                                         KC_TRNS,  KC_BTN1,
                                                                    KC_TRNS,
-                                               KC_TRNS,  KC_TRNS,  KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,  KC_BTN2,
     // right hand
                 KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                 KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                 KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MPLY,
                 KC_TRNS,  KC_TRNS,  KC_MPRV,  KC_MNXT,  KC_TRNS,  KC_TRNS,
                           KC_VOLU,  KC_VOLD,  KC_MUTE,  KC_TRNS,  KC_TRNS,
-      KC_TRNS,  KC_TRNS,
+      KC_WBAK,  KC_TRNS,
       KC_TRNS,
       KC_TRNS,  KC_TRNS,  KC_WBAK
 ),
@@ -165,7 +165,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case VRSN:
       if (record->event.pressed) {
-        SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+        SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION "ljudmila-dober-stukere");
       }
       return false;
       break;
