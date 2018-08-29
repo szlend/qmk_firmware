@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
            KC_EQL,         KC_1,           KC_2,     KC_3,     KC_4,  KC_5,
           KC_DELT,         KC_Q,           KC_W,     KC_E,     KC_R,  KC_T,
-          KC_BSPC,         KC_A,           KC_S,     KC_D,     KC_F,  KC_G,
+          KC_INS,         KC_A,           KC_S,     KC_D,     KC_F,  KC_G,
           KC_LSPO,  CTL_T(KC_Z),           KC_X,     KC_C,     KC_V,  KC_B,
           LT(SYMB,KC_GRV),ALT_T(KC_QUOT),LALT(KC_LSFT),KC_LEFT,KC_RGHT,
                                                               LGUI_T(KC_ESC),   KC_SPC,
@@ -111,9 +111,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                      ,-------------.  ,-------------.
  *                                      |      |      |  |      |      |
  *                               ,------|------|------|  |------+------+------.
- *                               |      |      |      |  |      |      |Brwser|
+ *                               |      |      | Wh-U |  |      |      |Brwser|
  *                               | Lclk | Rclk |------|  |------|      |Back  |
- *                               |      |      |      |  |      |      |      |
+ *                               |      |      | Wh-D |  |      |      |      |
  *                               `--------------------'  `--------------------'
  *
  */
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_BTN1,  KC_BTN2,
                                                          KC_TRNS,  KC_BTN1,
                                                                    KC_TRNS,
-                                               KC_TRNS,  KC_TRNS,  KC_BTN2,
+                                               KC_WH_U,  KC_WH_D,  KC_BTN2,
     // right hand
                 KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                 KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
