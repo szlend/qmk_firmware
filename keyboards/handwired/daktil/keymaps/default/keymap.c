@@ -70,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                      ,-------------.  ,-------------.
  *                                      |      |      |  |      |      |
  *                               ,------|------|------|  |------+------+------.
- *                               |      |      |      |  |      |      |      |
+ *                               |      |      |   =  |  |  -   |      |      |
  *                               |      |      |------|  |------|      |      |
- *                               |      |      |      |  |      |      |      |
+ *                               |      |      |   +  |  |  _   |      |      |
  *                               `--------------------'  `--------------------'
  */
 // SYMBOLS
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          RESET,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                                                          KC_TRNS,  KC_TRNS,
                                                                    KC_TRNS,
-                                               KC_TRNS,  KC_TRNS,  KC_TRNS,
+                                               KC_EQL,  KC_PLUS,  KC_TRNS,
        // right hand
                 KC_F6,      KC_F7,   KC_F8, KC_F9,  KC_F10,   KC_F11,
                 KC_UP,       KC_7,    KC_8,  KC_9, KC_ASTR,   KC_F12,
@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           KC_TRNS,  KC_DOT,  KC_0,  KC_EQL,  KC_TRNS,
       KC_TRNS,  KC_TRNS,
       KC_TRNS,
-      KC_TRNS,  KC_TRNS,  KC_TRNS
+      KC_TRNS,  KC_UNDS,  KC_MINS
 ),
 /* Keymap 2: Media and mouse keys
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -102,9 +102,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |      | MsUp |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |MsLeft|MsDown|MsRght|      |                    |      |      |      |      |      | Play |
+ * |      | VolUp|MsLeft|MsDown|MsRght|      |                    |      |      |      |      |      | Play |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |      | Prev | Next |      |      |
+ * |      | VolDn|      |      |      |      |                    |      |      | Prev | Next |      |      |
  * |------+------+------+------+------+------'                    `------+------+------+------+------+------|
  * |      |      |      | Lclk | Rclk |                                  | VolUp| VolDn| Mute |      |      |
  * `----------------------------------'                                  `----------------------------------'
@@ -121,8 +121,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MDIA] = LAYOUT_dactyl(
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MS_U,  KC_TRNS,  KC_TRNS,
-       KC_TRNS,  KC_TRNS,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_TRNS,
-       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
+       KC_TRNS,  KC_VOLU,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_TRNS,
+       KC_TRNS,  KC_VOLD,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_BTN1,  KC_BTN2,
                                                          KC_TRNS,  KC_BTN1,
                                                                    KC_TRNS,
