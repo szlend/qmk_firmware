@@ -8,6 +8,11 @@
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // ensure these codes start after the highest keycode defined in Quantum
   VRSN,
+  R_MAIL, // radio email
+  G_MAIL, // google email
+  R_ARR, // right arrow ->
+  R_BARR, // right bold arrow =>
+  TKL, // tehnoklistir
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -57,13 +62,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |Versn |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   !  |   @  |   {  |   }  |   |  |                    |  Up  |   7  |   8  |   9  |   *  |  F12 |
+ * |   ;  |   !  |   @  |   {  |   }  |   |  |                    |  Up  |   7  |   8  |   9  |   *  |  F12 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   #  |   $  |   (  |   )  |   `  |                    | Down |   4  |   5  |   6  |   +  |      |
+ * |   :  |   #  |   $  |   (  |   )  |   `  |                    | Down |   4  |   5  |   6  |   +  |   ,  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   %  |   ^  |   [  |   ]  |   ~  |                    |   &  |   1  |   2  |   3  |   \  |      |
+ * |      |   %  |   ^  |   [  |   ]  |   ~  |                    |   &  |   1  |   2  |   3  |   /  |      |
  * |------+------+------+------+------+------'                    `------+------+------+------+------+------|
- * |RESET |      |      |   <  |   >  |                                  |   -  |   .  |   0  |   =  |      |
+ * |L1/RES|  ->  |  =>  |   <  |   >  |                                  |   -  |   .  |   0  |   =  |      |
  * `----------------------------------'                                  `----------------------------------'
  *                                      ,-------------.  ,-------------.
  *                                      |      |      |  |      |      |
@@ -77,18 +82,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [SYMB] = LAYOUT_dactyl(
        // left hand
           VRSN,    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,
-       KC_TRNS,  KC_EXLM,    KC_AT,  KC_LCBR,  KC_RCBR,  KC_PIPE,
-       KC_TRNS,  KC_HASH,   KC_DLR,  KC_LPRN,  KC_RPRN,   KC_GRV,
+       KC_SCLN,  KC_EXLM,    KC_AT,  KC_LCBR,  KC_RCBR,  KC_PIPE,
+       KC_COLN,  KC_HASH,   KC_DLR,  KC_LPRN,  KC_RPRN,   KC_GRV,
        KC_TRNS,  KC_PERC,  KC_CIRC,  KC_LBRC,  KC_RBRC,  KC_TILD,
-          RESET,  KC_TRNS,  KC_TRNS,  KC_LT,  KC_GT,
+LT(SYMB,RESET),   R_ARR,   R_BARR,  KC_LT,  KC_GT,
                                                          KC_TRNS,  KC_TRNS,
                                                                    KC_EQL,
                                                KC_ENT,  KC_TRNS,  KC_PLUS,
        // right hand
                 KC_F6,      KC_F7,   KC_F8, KC_F9,  KC_F10,   KC_F11,
                 KC_UP,       KC_7,    KC_8,  KC_9, KC_ASTR,   KC_F12,
-                KC_DOWN,     KC_4,    KC_5,  KC_6, KC_PLUS,  KC_TRNS,
-                KC_AMPR,     KC_1,    KC_2,  KC_3, KC_BSLS,  KC_TRNS,
+                KC_DOWN,     KC_4,    KC_5,  KC_6, KC_PLUS,  KC_COMM,
+                KC_AMPR,     KC_1,    KC_2,  KC_3, KC_SLSH,  KC_TRNS,
                           KC_MINS,  KC_DOT,  KC_0,  KC_EQL,  KC_TRNS,
       KC_TRNS,  KC_TRNS,
       KC_MINS,
@@ -98,9 +103,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      | MsUp |      |      |                    |      |      |      |      |      |      |
+ * |      |      |      | MsUp | Rmail|  tk  |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      | VolUp|MsLeft|MsDown|MsRght|      |                    |      |      |      |      |      | Play |
+ * |      | VolUp|MsLeft|MsDown|MsRght| Gmail|                    |      |      |      |      |      | Play |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      | VolDn|      |      |      |      |                    |      |      | Prev | Next |      |      |
  * |------+------+------+------+------+------'                    `------+------+------+------+------+------|
@@ -116,11 +121,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *
  */
 // MEDIA AND MOUSE
-// MEDIA AND MOUSE
 [MDIA] = LAYOUT_dactyl(
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
-       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MS_U,  KC_TRNS,  KC_TRNS,
-       KC_TRNS,  KC_VOLU,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_TRNS,
+       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MS_U,  R_MAIL,   TKL,
+       KC_TRNS,  KC_VOLU,  KC_MS_L,  KC_MS_D,  KC_MS_R,  G_MAIL,
        KC_TRNS,  KC_VOLD,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,  KC_MUTE,  KC_TRNS,  KC_BTN1,  KC_BTN2,
                                                          KC_TRNS,  KC_TRNS,
@@ -165,6 +169,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VRSN:
       if (record->event.pressed) {
         SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+      }
+      return false;
+      break;
+    case R_MAIL:
+      if (record->event.pressed) {
+        SEND_STRING ("lio.novelli@radiostudent.si");
+      }
+      return false;
+      break;
+    case G_MAIL:
+      if (record->event.pressed) {
+        SEND_STRING ("liopolddoron@gmail.com");
+      }
+      return false;
+      break;
+    case R_ARR:
+      if (record->event.pressed)  {
+        SEND_STRING ("->");
+      }
+      return false;
+      break;
+    case R_BARR:
+      if (record->event.pressed) {
+        SEND_STRING ("=>");
+      }
+      return false;
+      break;
+    case TKL:
+      if (record->event.pressed) {
+        SEND_STRING ("tehnoklistir");
       }
       return false;
       break;
