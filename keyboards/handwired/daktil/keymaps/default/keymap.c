@@ -10,6 +10,8 @@
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // ensure these codes start after the highest keycode defined in Quantum
   VRSN,
+  R_ARR,
+  R_BARR,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -65,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |   %  |   ^  |   [  |   ]  |   ~  |                    |   &  |   1  |   2  |   3  |   \  |      |
  * |------+------+------+------+------+------'                    `------+------+------+------+------+------|
- * |RESET |      |      |   <  |   >  |                                  |   -  |   .  |   0  |   =  |      |
+ * |RESET |  ->  |  =>  |   <  |   >  |                                  |   -  |   .  |   0  |   =  |      |
  * `----------------------------------'                                  `----------------------------------'
  *                                      ,-------------.  ,-------------.
  *                                      |      |      |  |      |      |
@@ -82,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,  KC_EXLM,    KC_AT,  KC_LCBR,  KC_RCBR,  KC_PIPE,
        KC_TRNS,  KC_HASH,   KC_DLR,  KC_LPRN,  KC_RPRN,   KC_GRV,
        KC_TRNS,  KC_PERC,  KC_CIRC,  KC_LBRC,  KC_RBRC,  KC_TILD,
-         RESET,  KC_TRNS,  KC_TRNS,  KC_LT,  KC_GT,
+         RESET,  R_ARR,     R_BARR,  KC_LT,  KC_GT,
                                                          KC_TRNS,  KC_ENT,
                                                                    KC_TRNS,
                                                KC_EQL,  KC_PLUS,  KC_TRNS,
@@ -166,6 +168,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case VRSN:
       if (record->event.pressed) {
         SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION "ljudmila-dober-stukere");
+      }
+      return false;
+      break;
+    case R_ARR:
+      if (record->event.pressed)  {
+        SEND_STRING ("->");
+      }
+      return false;
+      break;
+    case R_BARR:
+      if (record->event.pressed) {
+        SEND_STRING ("=>");
       }
       return false;
       break;
