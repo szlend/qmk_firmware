@@ -23,8 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x6660
-#define PRODUCT_ID      0xD571
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x1308
 #define DEVICE_VER      0x0002
 #define MANUFACTURER    Ludamila
 #define PRODUCT         Daktil
@@ -42,6 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_TIME_TO_MAX  60
 #define MOUSEKEY_MAX_SPEED    7
 #define MOUSEKEY_WHEEL_MAX_SPEED 3
+#define MOUSEKEY_WHEEL_DELAY     0
 #define MOUSEKEY_WHEEL_TIME_TO_MAX  40
 
 #define TAPPING_TOGGLE  1
