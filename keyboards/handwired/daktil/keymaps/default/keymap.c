@@ -35,10 +35,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_dactyl(  // layer 0 : default
         // left hand
           KC_DELT,        KC_1,           KC_2,     KC_3,     KC_4,  KC_5,  // this line is missing
-          KC_EQL,        KC_Q,           KC_W,     KC_E,     KC_R,  KC_T,
+          KC_EQL,         KC_Q,           KC_W,     KC_E,     KC_R,  KC_T,
           KC_LSPO,        CTL_T(KC_A),    KC_S,     KC_D,     KC_F,  KC_G,
-          LT(SYMB,KC_GRV), ALT_T(KC_Z),    KC_X,     KC_C,     KC_V,  KC_B,
-          KC_TRNS,      KC_TRNS,  KC_LEFT,   KC_RGHT,  KC_TRNS,
+          LT(SYMB,KC_GRV), ALT_T(KC_Z),   KC_X,     KC_C,     KC_V,  KC_B,
+          KC_TRNS,        KC_TRNS,        KC_LEFT,  KC_RGHT,  KC_TRNS,
 
                                                             KC_BSPC,
                                                    KC_SPC,
@@ -62,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Symbol Layer
  *
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |   !  |   @  |   {  |   }  |   |  |                    |  Up  |   7  |   8  |   9  |   *  |  F12 |
+ * | VRSN |   !  |   @  |   {  |   }  |   |  |                    |  Up  |   7  |   8  |   9  |   *  |  F12 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |   #  |   $  |   (  |   )  |   `  |                    | Down |   4  |   5  |   6  |   +  |      |
+ * | LShft|   #  |   $  |   (  |   )  |   `  |                    | Down |   4  |   5  |   6  |   +  | RShft|
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | RESET|   %  |   ^  |   [  |   ]  |   ~  |                    |   &  |   1  |   2  |   3  |   -  |  L0  |
  * `------+------+------+------+------+------'                    `------+------+------+------+------+------'
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           VRSN,  KC_EXLM,    KC_AT,  KC_LCBR,  KC_RCBR,  KC_PIPE,
        KC_TRNS,  KC_HASH,   KC_DLR,  KC_LPRN,  KC_RPRN,   KC_GRV,
          RESET,  KC_PERC,  KC_CIRC,  KC_LBRC,  KC_RBRC,  KC_TILD,
-         RESET,  KC_TRNS,     KC_LT,   KC_GT,  KC_TRNS,
+         RESET,  KC_TRNS,    KC_LT,    KC_GT,  KC_TRNS,
                                                          KC_TRNS,  KC_ENT,
                                                                    KC_TRNS,
                                                KC_EQL,  KC_TRNS,  KC_PLUS,
@@ -101,11 +101,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* Keymap 2: Media and mouse keys
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      | MsUp |      |      |                    |      |      |      |      |      |      |
+ * |      | VolU |      | MsUp |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |MsLeft|MsDown|MsRght|      |                    |      |      |      |      |      | Play |
+ * |      | VolD |MsLeft|MsDown|MsRght|      |                    |      |      |      |      |      | Play |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |      | Prev | Next |      |      |
+ * |      | MUTE |      |      |      |      |                    |      |      | Prev | Next |      |      |
  * `------+------+------+------+------+------'                    `------+------+------+------+------+------|
  *               |      | Lclk |                                                | VolUp| VolDn|
  *               `-------------'                                                `-------------'
