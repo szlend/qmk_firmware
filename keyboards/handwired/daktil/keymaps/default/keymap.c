@@ -10,6 +10,8 @@
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // ensure these codes start after the highest keycode defined in Quantum
   VRSN,
+  R_ARR,
+  R_BARR,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -43,8 +45,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                             KC_BSPC,
                                                    KC_SPC,
                                                                     LGUI_T(KC_ESC),
-                                                          KC_HOME,  RALT_T(KC_APP),
-                                                                           KC_END,
+          KC_HOME,
+          KC_END, RALT_T(KC_APP),
         // right hand
                              KC_6,   KC_7,     KC_8,     KC_9,               KC_0,         KC_MINS,  // this line is missing
                              KC_Y,   KC_U,     KC_I,     KC_O,     LT(MDIA, KC_P),         KC_BSLS,
@@ -62,7 +64,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 1: Symbol Layer
  *
  * ,-----------------------------------------.                    ,-----------------------------------------.
+<<<<<<< HEAD
  * | VRSN |   !  |   @  |   {  |   }  |   |  |                    |  Up  |   7  |   8  |   9  |   *  |  F12 |
+=======
+ * | VRSN |   !  |   @  |   {  |   }  |   |  |                    |  Up  |   7  |   8  |   9  |   *  |   '  |
+>>>>>>> 85a66f56be8824bcd9513c0760dac7d24e403897
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | LShft|   #  |   $  |   (  |   )  |   `  |                    | Down |   4  |   5  |   6  |   +  | RShft|
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
@@ -107,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      | MUTE |      |      |      |      |                    |      |      | Prev | Next |      |      |
  * `------+------+------+------+------+------'                    `------+------+------+------+------+------|
- *               |      | Lclk |                                                | VolUp| VolDn|
+ *               |  ->  |  =>  |                                                | VolUp| VolDn|
  *               `-------------'                                                `-------------'
  *                                      ,-------------.  ,-------------.
  *                                      |      |      |  |      |      |
@@ -124,10 +130,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,  KC_VOLU,  KC_WH_U,  KC_MS_U,  KC_WH_D,  KC_TRNS,
        KC_TRNS,  KC_VOLD,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_TRNS,
        KC_TRNS,  KC_MUTE,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
-       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
-                                                         KC_TRNS,  KC_BTN2,
-                                                                   KC_BTN1,
-                                               KC_WH_U,  KC_TRNS,  KC_WH_D,
+       KC_TRNS,  KC_TRNS,  R_ARR,     R_BARR,  KC_TRNS,
+                                                         KC_BTN2,  KC_BTN1,
+                                                                   KC_TRNS,
+                                                KC_WH_U,  KC_WH_D, KC_TRNS,
     // right hand
                 KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                 KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MPLY,
@@ -170,6 +176,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case R_ARR:
+      if (record->event.pressed)  {
+        SEND_STRING ("->");
+      }
+      return false;
+      break;
+   case R_BARR:
+     if (record->event.pressed) {
+       SEND_STRING ("=>");
+     }
+     return false;
+     break;
   }
   return true;
 }
