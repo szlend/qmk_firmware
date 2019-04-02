@@ -39,8 +39,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_DELT,        KC_1,           KC_2,     KC_3,     KC_4,  KC_5,  // this line is missing
           KC_EQL,         KC_Q,           KC_W,     KC_E,     KC_R,  KC_T,
           KC_LSPO,        CTL_T(KC_A),    KC_S,     KC_D,     KC_F,  KC_G,
-          LT(SYMB,KC_GRV), ALT_T(KC_Z),   KC_X,     KC_C,     KC_V,  KC_B,
-          KC_TRNS,        KC_TRNS,        KC_LEFT,  KC_RGHT,  KC_TRNS,
+          LT(SYMB,KC_GRV), KC_A,   KC_W,     KC_C,     KC_V,  KC_B,
+          KC_TRNS,        KC_TRNS,        KC_S,  KC_D,  KC_TRNS,
 
                                                             KC_BSPC,
                                                    KC_SPC,
@@ -51,8 +51,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_6,   KC_7,     KC_8,     KC_9,               KC_0,         KC_MINS,  // this line is missing
                              KC_Y,   KC_U,     KC_I,     KC_O,     LT(MDIA, KC_P),         KC_BSLS,
                              KC_H,   KC_J,     KC_K,     KC_L,     CTL_T(KC_SCLN),         KC_RSPC,
-                             KC_N,   KC_M,  KC_COMM,   KC_DOT,     ALT_T(KC_SLSH),LT(SYMB,KC_QUOT),
-                                  KC_TRNS,  KC_LBRC,  KC_RBRC,            KC_TRNS,         KC_TRNS,
+                             KC_N,   KC_M,  KC_COMM,   KC_UP,     KC_RIGHT,LT(SYMB,KC_QUOT),
+                                  KC_TRNS,  KC_LEFT,  KC_DOWN,            KC_TRNS,         KC_TRNS,
 
                                    KC_ENT,
                           KC_TAB,
